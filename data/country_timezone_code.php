@@ -1,5 +1,7 @@
 <?php
-
+/**
+ * List of countries capital's time zones
+ */
 return [
     'AD' => 'Europe/Andorra',
     'AE' => 'Asia/Dubai',

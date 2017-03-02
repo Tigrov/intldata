@@ -6,9 +6,11 @@ class Language implements DataInterface
 {
     use NamesTrait;
 
+    // Main ISO 639-1 language codes
     const MAIN_CODES = ['zh','en','es','ar','pt','ru','de','fr','it','tr'];
 
     /**
+     * ISO 639-1 and ISO 639-2 language codes
      * @inheritdoc
      */
     public static function codes()
@@ -57,10 +59,10 @@ class Language implements DataInterface
     }
 
     /**
-     * Find main language code in a list
+     * Find main ISO 639-1 language code in a list
      *
      * @param array $codes list of language codes
-     * @return string|null main language code or null
+     * @return string|null main ISO 639-1 language code or null
      */
     public static function findMainCode($codes)
     {

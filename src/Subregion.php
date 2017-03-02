@@ -7,10 +7,10 @@ class Subregion implements DataInterface
     use NamesTrait;
 
     /**
-     * Get list of subregion codes for a region
+     * Get list of UN sub-region codes for a region
      *
-     * @param null|string $regionCode region code
-     * @return array list of subregion codes
+     * @param null|string $regionCode UN region code
+     * @return array list of UN sub-region codes
      */
     public static function codes($regionCode = null)
     {
@@ -18,9 +18,9 @@ class Subregion implements DataInterface
     }
 
     /**
-     * Get list of subregion names for a region
+     * Get list of sub-region names for a region
      *
-     * @param null|string $regionCode region code
+     * @param null|string $regionCode UN region code
      * @return array list of subregion names
      */
     public static function names($regionCode = null)
@@ -38,7 +38,7 @@ class Subregion implements DataInterface
     /**
      * @inheritdoc
      *
-     * @param string $code region code, subregion code, country code
+     * @param string $code UN region code, UN sub-region code, ISO 3166-1 alpha-2 country code
      * @return string region name, subregion name, country name
      */
     public static function name($code)
@@ -47,10 +47,10 @@ class Subregion implements DataInterface
     }
 
     /**
-     * Get region code by a subregion
+     * Get UN region code by a subregion
      *
-     * @param string $subregionCode subregion code
-     * @return string region code
+     * @param string $subregionCode UN sub-region code
+     * @return string UN region code
      */
     public static function regionCode($subregionCode)
     {
@@ -64,10 +64,10 @@ class Subregion implements DataInterface
     }
 
     /**
-     * Get list of country codes for a subregion
+     * Get list of ISO 3166-1 alpha-2 country codes for a sub-region
      *
-     * @param string $subregionCode subregion code
-     * @return array list of country codes
+     * @param string $subregionCode UN sub-region code
+     * @return array list of ISO 3166-1 alpha-2 country codes
      */
     public static function countryCodes($subregionCode)
     {
@@ -77,10 +77,10 @@ class Subregion implements DataInterface
     }
 
     /**
-     * Get subregion code for a country
+     * Get UN sub-region code for a country
      *
-     * @param $countryCode country code
-     * @return string subregion code
+     * @param string $countryCode ISO 3166-1 alpha-2 country code
+     * @return string UN sub-region code
      */
     public static function countrySubregionCode($countryCode)
     {

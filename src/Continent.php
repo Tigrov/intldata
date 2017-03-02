@@ -5,7 +5,7 @@ namespace tigrov\intldata;
 class Continent implements DataInterface
 {
     /**
-     * Continent codes with country codes
+     * Continent codes with ISO 3166-1 alpha-2 country codes
      */
     const CODES = [
         'AF' => ['BW','CF','BJ','AO','BI','BF','GM','CG','CV','DJ','DZ','ER','EH','GA','GN','GW','LR','LY','YT','LS',
@@ -64,10 +64,10 @@ class Continent implements DataInterface
     }
 
     /**
-     * List of continent's country codes.
+     * List of continent's ISO 3166-1 alpha-2 country codes.
      *
-     * @param $code
-     * @return array country codes of continent
+     * @param string $code continent code
+     * @return array ISO 3166-1 alpha-2 country codes of continent
      */
     public static function countryCodes($code)
     {
@@ -75,9 +75,9 @@ class Continent implements DataInterface
     }
 
     /**
-     * Get continent code by country code.
+     * Get continent code by ISO 3166-1 alpha-2 country code.
      *
-     * @param $countryCode country code
+     * @param string $countryCode ISO 3166-1 alpha-2 country code
      * @return null|string continent code
      */
     public static function countryContinentCode($countryCode)

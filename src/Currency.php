@@ -7,7 +7,7 @@ class Currency implements DataInterface
     use NamesTrait;
 
     /**
-     * Actual currency codes
+     * Actual ISO 4217 currency codes
      */
     const CODES = ['AED','AFN','ALL','AMD','ANG','AOA','ARS','AUD','AWG','AZN','BAM','BBD','BDT','BGN','BHD','BIF',
                    'BMD','BND','BOB','BRL','BSD','BTN','BWP','BYR','BZD','CAD','CDF','CHF','CLP','CNY','COP','CRC',
@@ -21,13 +21,12 @@ class Currency implements DataInterface
                    'UZS','VEF','VND','VUV','WST','XAF','XCD','XOF','XPF','YER','ZAR','ZMW'];
 
     /**
-     * Main currency codes
+     * Main ISO 4217 currency codes
      */
     const MAIN_CODES = ['USD', 'EUR', 'GBP', 'CNY', 'AUD', 'RUB', 'INR', 'ZAR'];
 
     /**
-     * Get actual currency codes
-     *
+     * Get actual ISO 4217 currency codes
      * @inheritdoc
      */
     public static function codes()

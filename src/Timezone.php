@@ -5,6 +5,7 @@ namespace tigrov\intldata;
 class Timezone implements DataInterface
 {
     /**
+     * Time zone names from IANA tame zone database
      * @inheritdoc
      *
      * @param null|string $countryCode country code
@@ -20,7 +21,7 @@ class Timezone implements DataInterface
     /**
      * @inheritdoc
      *
-     * @param null|string $countryCode country code
+     * @param null|string $countryCode ISO 3166-1 alpha-2 country code
      * @return array list of timezone names
      */
     public static function names($countryCode = null)
@@ -82,7 +83,7 @@ class Timezone implements DataInterface
     /**
      * Get default timezone code of a country
      *
-     * @param $countryCode country code
+     * @param string $countryCode ISO 3166-1 alpha-2 country code
      * @return string timezone code
      */
     public static function countryTimezoneCode($countryCode)

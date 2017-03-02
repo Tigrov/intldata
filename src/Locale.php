@@ -6,12 +6,15 @@ class Locale implements DataInterface
 {
     use NamesTrait;
 
+    /*
+     * Ignored locale codes (using RFC 4646 language tags)
+     */
     const IGNORE_CODES = ['en_US_POSIX', 'chr', 'chr_US', 'my', 'my_MM'];
 
     /**
-     * Get all supported locales
+     * Get all supported locales (using RFC 4646 language tags)
      *
-     * @return array locale codes
+     * @return array locale codes (using RFC 4646 language tags)
      */
     public static function codes()
     {
@@ -32,7 +35,7 @@ class Locale implements DataInterface
     /**
      * Get name of a locale in the locale language
      *
-     * @param $code string locale code
+     * @param $code string locale code (using RFC 4646 language tags)
      * @return string name of the locale in the locale language
      */
     public static function localeName($code)
@@ -43,7 +46,7 @@ class Locale implements DataInterface
     /**
      * Tries to find out best available locale based on HTTP “Accept-Language” header
      *
-     * @return string The corresponding locale identifier.
+     * @return string The corresponding locale identifier (using RFC 4646 language tags)
      */
     public static function acceptCode($header = null)
     {
@@ -53,8 +56,8 @@ class Locale implements DataInterface
     /**
      * Get language code for a locale
      *
-     * @param $localeCode locale code
-     * @return string language code
+     * @param $localeCode locale code (using RFC 4646 language tags)
+     * @return string ISO 639-1 or ISO 639-2 language code
      */
     public static function languageCode($localeCode)
     {
@@ -64,7 +67,7 @@ class Locale implements DataInterface
     /**
      * Get list of language locale codes
      *
-     * @param string $languageCode language code
+     * @param string $languageCode ISO 639-1 or ISO 639-2 language code
      * @return array list of language locale codes
      */
     public static function languageLocaleCodes($languageCode)
@@ -77,7 +80,7 @@ class Locale implements DataInterface
     /**
      * Get list of locale codes grouped by language codes
      *
-     * @return array list of locale codes grouped by language codes
+     * @return array list of locale codes grouped by ISO 639-1 and ISO 639-2 language codes
      */
     public static function languagesLocaleCodes()
     {
@@ -98,8 +101,8 @@ class Locale implements DataInterface
     /**
      * Get list of country locale codes
      *
-     * @param string $countryCode country code
-     * @return array list of country locale codes
+     * @param string $countryCode ISO 3166-1 alpha-2 country code
+     * @return array list of country locale codes (using RFC 4646 language tags)
      */
     public static function countryLocaleCodes($countryCode)
     {
@@ -109,9 +112,9 @@ class Locale implements DataInterface
     }
 
     /**
-     * Get list of locale codes grouped by country codes
+     * Get list of locale codes grouped by ISO 3166-1 alpha-2 country codes
      *
-     * @return array list of locale codes grouped by country codes
+     * @return array list of locale codes (using RFC 4646 language tags) grouped by ISO 3166-1 alpha-2 country codes
      */
     public static function countriesLocaleCodes()
     {
@@ -133,7 +136,7 @@ class Locale implements DataInterface
      * Find main locale code in a list
      *
      * @param array $localeCodes list of locale codes
-     * @return string|null main locale code or null
+     * @return string|null main locale code (using RFC 4646 language tags) or null
      */
     public static function findMainCode($localeCodes)
     {
@@ -155,8 +158,8 @@ class Locale implements DataInterface
     /**
      * Try to find locale code for a country
      *
-     * @param string $countryCode country code
-     * @return string|null locale code
+     * @param string $countryCode ISO 3166-1 alpha-2 country code
+     * @return string|null locale code (using RFC 4646 language tags)
      */
     public static function countryLocaleCode($countryCode)
     {

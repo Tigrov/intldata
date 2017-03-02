@@ -12,7 +12,7 @@ class Region implements DataInterface
     const WORLD_CODE = '001';
 
     /**
-     * Region codes with subregion codes with country codes
+     * UN regional codes with subregion codes with ISO 3166-1 alpha-2 country codes
      */
     const CODES = [
         '019' => [
@@ -47,32 +47,33 @@ class Region implements DataInterface
     ];
 
     /**
-     * Codes of countries without region
+     * ISO 3166-1 alpha-2 codes of countries without region
      */
     const COUNTRIES_WITHOUT_REGION = ['AQ','BV'];
 
     /**
-     * Codes of countries of European Union
+     * ISO 3166-1 alpha-2 codes of countries of European Union
      */
     const EU_COUNTRY_CODES = ['AT','BE','BG','CY','CZ','DE','DK','ES','EE','FI','FR','GB','GR','HR','HU','IE','IT','LT',
                               'LU','LV','MT','NL','PL','PT','RO','SK','SI','SE'];
 
     /**
-     * Codes of countries of NAFTA
+     * ISO 3166-1 alpha-2 codes of countries of NAFTA
      */
     const NAFTA_COUNTRY_CODES = ['CA','MX','US'];
 
     /**
-     * Codes of countries of EAEU
+     * ISO 3166-1 alpha-2 codes of countries of EAEU
      */
     const EAEU_COUNTRY_CODES = ['AM','BY','KG','KZ','RU'];
 
     /**
-     * Codes of countries of CIS
+     * ISO 3166-1 alpha-2 codes of countries of CIS
      */
     const CIS_COUNTRY_CODES = ['AM','AZ','BY','KG','KZ','MD','RU','TJ','TM','UA','UZ'];
 
     /**
+     * UN regional codes
      * @inheritdoc
      */
     public static function codes()
@@ -83,7 +84,7 @@ class Region implements DataInterface
     /**
      * @inheritdoc
      *
-     * @param string $code region code, subregion code, country code
+     * @param string $code UN region code, UN sub-region code, ISO 3166-1 alpha-2 country code
      * @return string region name, subregion name, country name
      */
     public static function name($code)
@@ -98,10 +99,10 @@ class Region implements DataInterface
     }
 
     /**
-     * Get list of country codes for a region
+     * Get list of ISO 3166-1 alpha-2 country codes for a region
      *
-     * @param null|string $regionCode region code
-     * @return array list of country codes
+     * @param null|string $regionCode UN region code
+     * @return array list of ISO 3166-1 alpha-2 country codes
      */
     public static function countryCodes($regionCode = null)
     {
@@ -122,10 +123,10 @@ class Region implements DataInterface
     }
 
     /**
-     * Get region code for a country
+     * Get UN region code for a country
      *
-     * @param $countryCode country code
-     * @return string region code
+     * @param string $countryCode ISO 3166-1 alpha-2 country code
+     * @return string UN region code
      */
     public static function countryRegionCode($countryCode)
     {
