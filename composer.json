@@ -1,0 +1,26 @@
+{
+    "name": "tigrov/intldata",
+    "description": "Intl extension data in comfortable format.",
+    "keywords": ["continent", "region", "country", "timezone", "currency", "language", "locale", "time zone", "measurement", "intl", "i18n", "l10n", "internationalization", "localization"],
+    "type": "library",
+    "license": "MIT",
+    "support": {
+        "source": "https://github.com/tigrov/intldata"
+    },
+    "authors": [
+        {
+            "name": "Sergei Tigrov",
+            "email": "rrr-r@ya.ru"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=5.6",
+        "ext-intl": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "tigrov\\intldata\\": "src/"
+        }
+    }
+}
