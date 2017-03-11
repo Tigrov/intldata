@@ -58,12 +58,12 @@ to the require section of your `composer.json` file.
 Addition
 --------
 
-- For additional information about countries (flags, codes, borders and other) use a library \
+- For additional information about countries (flags, codes, borders and other) use a library  
 https://github.com/rinvex/country
-- For divisions (country regions and states) and cities use a library \
+- For divisions (country regions and states) and cities use a library  
 https://github.com/MenaraSolutions/geographer
-- For more information about Intl extension data use \
-http://intl.rmcreative.ru/tables?locale=en_US \
+- For more information about Intl extension data use  
+http://intl.rmcreative.ru/tables?locale=en_US  
 http://php.net/manual/book.intl.php
 
 License
