@@ -1,4 +1,8 @@
 <?php
+/**
+ * @link https://github.com/tigrov/intldata
+ * @author Sergei Tigrov <rrr-r@ya.ru>
+ */
 
 namespace tigrov\intldata;
 
