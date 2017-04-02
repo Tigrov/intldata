@@ -13,7 +13,7 @@ class Locale implements DataInterface
     /*
      * Ignored locale codes (using RFC 4646 language tags)
      */
-    const IGNORE_CODES = ['en_US_POSIX', 'chr', 'chr_US', 'my', 'my_MM'];
+    const IGNORE_CODES = ['en_US_POSIX'];
 
     /**
      * Get all supported locales (using RFC 4646 language tags)
