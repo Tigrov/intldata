@@ -82,4 +82,31 @@ class Currency implements DataInterface
 
         return null;
     }
+
+    /**
+     * Get default currency code for each country
+     *
+     * @return array ISO 4217 currency code for each ISO 3166-1 alpha-2 country code
+     */
+    public static function countryCurrencyCodes()
+    {
+        static $list;
+
+        if ($list === null) {
+            $list = require(dirname(__DIR__) . '/data/country_currency_code.php');
+        }
+
+        return $list;
+    }
+
+    /**
+     * Get default currency code of a country
+     *
+     * @param string $countryCode ISO 3166-1 alpha-2 country code
+     * @return string ISO 4217 currency code
+     */
+    public static function countryCurrencyCode($countryCode)
+    {
+        return static::countryCurrencyCodes()[$countryCode];
+    }
 }
