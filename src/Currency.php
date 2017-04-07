@@ -83,30 +83,20 @@ class Currency implements DataInterface
         return null;
     }
 
-    /**
-     * Get default currency code for each country
-     *
-     * @return array ISO 4217 currency code for each ISO 3166-1 alpha-2 country code
-     */
-    public static function countryCurrencyCodes()
+    public static function countryCurrencyFormatter($countryCode)
     {
-        static $list;
+        $localeCode = Locale::countryLocaleCode($countryCode);
 
-        if ($list === null) {
-            $list = require(dirname(__DIR__) . '/data/country_currency_code.php');
-        }
-
-        return $list;
+        return new \NumberFormatter($localeCode, \NumberFormatter::CURRENCY);
     }
 
-    /**
-     * Get default currency code of a country
-     *
-     * @param string $countryCode ISO 3166-1 alpha-2 country code
-     * @return string ISO 4217 currency code
-     */
     public static function countryCurrencyCode($countryCode)
     {
-        return static::countryCurrencyCodes()[$countryCode];
+        return static::countryCurrencyFormatter($countryCode)->getSymbol(\NumberFormatter::INTL_CURRENCY_SYMBOL);
+    }
+
+    public static function countryCurrencySymbol($countryCode)
+    {
+        return static::countryCurrencyFormatter($countryCode)->getSymbol(\NumberFormatter::CURRENCY_SYMBOL);
     }
 }
