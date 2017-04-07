@@ -64,7 +64,7 @@ class Country implements DataInterface
      * @param string $countryCode ISO 3166-1 alpha-2 country code
      * @return integer Geoname ID
      */
-    public static function countryCapitalGeonameId($countryCode)
+    public static function capitalGeonameId($countryCode)
     {
         return static::capitalGeonameIds()[$countryCode];
     }
