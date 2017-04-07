@@ -167,24 +167,37 @@ class Locale implements DataInterface
      */
     public static function countryLocaleCode($countryCode)
     {
-        $localeCodes = static::countryLocaleCodes($countryCode);
-        if (!count($localeCodes)) {
-            return null;
-        } elseif (count($localeCodes) == 1) {
-            return reset($localeCodes);
+        $countryLocaleCodes = static::countryLocaleCodes($countryCode);
+        if ($languageCode = Language::countryLanguageCode($countryCode)) {
+            $languageLocaleCodes = static::languageLocaleCodes($languageCode);
+            if ($localeCodes = array_intersect($languageLocaleCodes, $countryLocaleCodes)) {
+                return reset($localeCodes);
+            } elseif ($countryLocaleCodes) {
+                return reset($countryLocaleCodes);
+            } elseif ($languageLocaleCodes) {
+                return reset($languageLocaleCodes);
+            }
+
+            return $languageCode . '_' . $countryCode;
         }
 
-        if ($localeCode = static::findMainCode($localeCodes)) {
+        if (!count($countryLocaleCodes)) {
+            return null;
+        } elseif (count($countryLocaleCodes) == 1) {
+            return reset($countryLocaleCodes);
+        }
+
+        if ($localeCode = static::findMainCode($countryLocaleCodes)) {
             return $localeCode;
         }
 
-        foreach ($localeCodes as $localeCode) {
+        foreach ($countryLocaleCodes as $localeCode) {
             $languageCode = static::languageCode($localeCode);
             if (!strcasecmp($languageCode, $countryCode)) {
                 return $localeCode;
             }
         }
 
-        return reset($localeCodes);
+        return reset($countryLocaleCodes);
     }
 }

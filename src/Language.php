@@ -78,4 +78,31 @@ class Language implements DataInterface
 
         return null;
     }
+
+    /**
+     * Get default language code for each country
+     *
+     * @return array language code for each country
+     */
+    public static function countryLanguageCodes()
+    {
+        static $list;
+
+        if ($list === null) {
+            $list = require(dirname(__DIR__) . '/data/country_language_code.php');
+        }
+
+        return $list;
+    }
+
+    /**
+     * Get default language code of a country
+     *
+     * @param string $countryCode ISO 3166-1 alpha-2 country code
+     * @return string ISO 639-1 language code
+     */
+    public static function countryLanguageCode($countryCode)
+    {
+        return static::countryLanguageCodes()[$countryCode];
+    }
 }
