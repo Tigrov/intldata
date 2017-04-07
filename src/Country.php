@@ -41,31 +41,4 @@ class Country implements DataInterface
     {
         return Region::name($code);
     }
-
-    /**
-     * Get capital Geoname ID for each country
-     *
-     * @return array Geoname ID for each country
-     */
-    public static function capitalGeonameIds()
-    {
-        static $list;
-
-        if ($list === null) {
-            $list = require(dirname(__DIR__) . '/data/country_capital_geoname_id.php');
-        }
-
-        return $list;
-    }
-
-    /**
-     * Get capital Geoname ID of a country
-     *
-     * @param string $countryCode ISO 3166-1 alpha-2 country code
-     * @return integer Geoname ID
-     */
-    public static function capitalGeonameId($countryCode)
-    {
-        return static::capitalGeonameIds()[$countryCode];
-    }
 }
