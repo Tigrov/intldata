@@ -84,7 +84,7 @@ class Language implements DataInterface
      *
      * @return array language code for each country
      */
-    public static function countryLanguageCodes()
+    public static function countriesLanguageCode()
     {
         static $list;
 
@@ -103,6 +103,6 @@ class Language implements DataInterface
      */
     public static function countryLanguageCode($countryCode)
     {
-        return static::countryLanguageCodes()[$countryCode];
+        return static::countriesLanguageCode()[$countryCode];
     }
 }

@@ -73,7 +73,7 @@ class Timezone implements DataInterface
      *
      * @return array timezone code for each country
      */
-    public static function countryTimezoneCodes()
+    public static function countriesTimezoneCode()
     {
         static $list;
 
@@ -92,6 +92,6 @@ class Timezone implements DataInterface
      */
     public static function countryTimezoneCode($countryCode)
     {
-        return static::countryTimezoneCodes()[$countryCode];
+        return static::countriesTimezoneCode()[$countryCode];
     }
 }
