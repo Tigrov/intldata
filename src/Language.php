@@ -79,6 +79,12 @@ class Language implements DataInterface
         return null;
     }
 
+    /**
+     * Get list of country language codes
+     *
+     * @param string $countryCode ISO 3166-1 alpha-2 country code
+     * @return string[] ISO 639-1 language codes
+     */
     public function countryLanguageCodes($countryCode)
     {
         $localeCodes = Locale::countryLocaleCodes($countryCode);

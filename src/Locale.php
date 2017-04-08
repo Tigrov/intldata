@@ -71,7 +71,7 @@ class Locale implements DataInterface
     /**
      * Get list of language locale codes
      *
-     * @param string $languageCode ISO 639-1 or ISO 639-2 language code
+     * @param string $languageCode ISO 639-1, ISO 639-2 or ISO 639-3 language code
      * @return array list of language locale codes
      */
     public static function languageLocaleCodes($languageCode)
@@ -84,7 +84,7 @@ class Locale implements DataInterface
     /**
      * Get list of locale codes grouped by language codes
      *
-     * @return array list of locale codes grouped by ISO 639-1 and ISO 639-2 language codes
+     * @return array list of locale codes grouped by ISO 639-1, ISO 639-2 or ISO 639-3 language codes
      */
     public static function languagesLocaleCodes()
     {
@@ -178,7 +178,10 @@ class Locale implements DataInterface
                 return reset($languageLocaleCodes);
             }
 
-            return $languageCode . '_' . $countryCode;
+            return \Locale::composeLocale([
+                'language' => $languageCode,
+                'region' => $countryCode,
+            ]);
         }
 
         if (!count($countryLocaleCodes)) {
@@ -199,5 +202,26 @@ class Locale implements DataInterface
         }
 
         return reset($countryLocaleCodes);
+    }
+
+    /**
+     * Get locale code for a language and a country
+     *
+     * @param string $languageCode ISO 639-1, ISO 639-2 or ISO 639-3 language code
+     * @param string $countryCode ISO 3166-1 alpha-2 country code
+     * @return string locale code (using RFC 4646 language tags)
+     */
+    public static function languageCountryLocaleCode($languageCode, $countryCode)
+    {
+        $countryLocaleCodes = static::countryLocaleCodes($countryCode);
+        $languageLocaleCodes = static::languageLocaleCodes($languageCode);
+        if ($localeCodes = array_intersect($languageLocaleCodes, $countryLocaleCodes)) {
+            return reset($localeCodes);
+        }
+
+        return \Locale::composeLocale([
+            'language' => $languageCode,
+            'region' => $countryCode,
+        ]);
     }
 }
