@@ -79,6 +79,18 @@ class Language implements DataInterface
         return null;
     }
 
+    public function countryLanguageCodes($countryCode)
+    {
+        $localeCodes = Locale::countryLocaleCodes($countryCode);
+
+        $list = [];
+        foreach ($localeCodes as $localeCode) {
+            $list[] = Locale::languageCode($localeCode);
+        }
+
+        return $list;
+    }
+
     /**
      * Get default language code for each country
      *
