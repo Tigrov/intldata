@@ -6,7 +6,7 @@
 
 namespace tigrov\intldata;
 
-class Continent implements DataInterface
+class Continent extends DataAbstract
 {
     /**
      * Continent codes with ISO 3166-1 alpha-2 country codes

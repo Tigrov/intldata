@@ -6,7 +6,7 @@
 
 namespace tigrov\intldata;
 
-class Currency implements DataInterface
+class Currency extends DataAbstract
 {
     use NamesTrait;
 

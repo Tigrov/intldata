@@ -6,7 +6,7 @@
 
 namespace tigrov\intldata;
 
-class Locale implements DataInterface
+class Locale extends DataAbstract
 {
     use NamesTrait;
 

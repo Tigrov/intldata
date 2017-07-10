@@ -6,7 +6,7 @@
 
 namespace tigrov\intldata;
 
-class MeasurementSystem implements DataInterface
+class MeasurementSystem extends DataAbstract
 {
     const METRIC_CODE = 'SI';
     const US_CODE = 'US';

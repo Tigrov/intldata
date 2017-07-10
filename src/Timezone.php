@@ -6,7 +6,7 @@
 
 namespace tigrov\intldata;
 
-class Timezone implements DataInterface
+class Timezone extends DataAbstract
 {
     /**
      * Time zone names from IANA tame zone database

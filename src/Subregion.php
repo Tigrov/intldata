@@ -6,7 +6,7 @@
 
 namespace tigrov\intldata;
 
-class Subregion implements DataInterface
+class Subregion extends DataAbstract
 {
     use NamesTrait;
 

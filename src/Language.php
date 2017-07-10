@@ -6,7 +6,7 @@
 
 namespace tigrov\intldata;
 
-class Language implements DataInterface
+class Language extends DataAbstract
 {
     use NamesTrait;
 

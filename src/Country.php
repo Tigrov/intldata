@@ -6,7 +6,7 @@
 
 namespace tigrov\intldata;
 
-class Country implements DataInterface
+class Country extends DataAbstract
 {
     use NamesTrait;
 
