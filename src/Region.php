@@ -101,10 +101,9 @@ class Region extends DataAbstract
     }
 
     /**
-     * Get list of ISO 3166-1 alpha-2 country codes for a region
-     *
+     * Returns list of ISO 3166-1 alpha-2 country codes for a region
      * @param null|string $regionCode UN region code
-     * @return array list of ISO 3166-1 alpha-2 country codes
+     * @return array
      */
     public static function countryCodes($regionCode = null)
     {
@@ -125,10 +124,9 @@ class Region extends DataAbstract
     }
 
     /**
-     * Get UN region code for a country
-     *
+     * Returns UN region code for a country
      * @param string $countryCode ISO 3166-1 alpha-2 country code
-     * @return string UN region code
+     * @return string
      */
     public static function countryRegionCode($countryCode)
     {

@@ -35,10 +35,9 @@ class MeasurementSystem extends DataAbstract
     }
 
     /**
-     * Get measurement system code for country code
-     *
-     * @param $countryCode country code
-     * @return string measurement system code
+     * Returns measurement system code for a country
+     * @param string $countryCode the country code
+     * @return string
      */
     public static function countryMeasurementSystemCode($countryCode)
     {

@@ -14,9 +14,8 @@ class Locale extends DataAbstract
     const IGNORE_CODES = ['en_US_POSIX'];
 
     /**
-     * Get all supported locales (using RFC 4646 language tags)
-     *
-     * @return array locale codes (using RFC 4646 language tags)
+     * Returns all supported locales (using RFC 4646 language tags)
+     * @return string[]
      */
     public static function codes()
     {
@@ -24,10 +23,9 @@ class Locale extends DataAbstract
     }
 
     /**
-     * Get name of a locale
-     *
-     * @param $code string locale code
-     * @return string name of the locale
+     * Returns name of a locale
+     * @param string $code the locale code
+     * @return string
      */
     public static function name($code)
     {
@@ -35,10 +33,9 @@ class Locale extends DataAbstract
     }
 
     /**
-     * Get name of a locale in the locale language
-     *
-     * @param $code string locale code (using RFC 4646 language tags)
-     * @return string name of the locale in the locale language
+     * Returns name of a locale in the locale language
+     * @param string $code the locale code (using RFC 4646 language tags)
+     * @return string
      */
     public static function localeName($code)
     {
@@ -47,7 +44,6 @@ class Locale extends DataAbstract
 
     /**
      * Tries to find out best available locale based on HTTP “Accept-Language” header
-     *
      * @return string The corresponding locale identifier (using RFC 4646 language tags)
      */
     public static function acceptCode($header = null)
@@ -56,10 +52,9 @@ class Locale extends DataAbstract
     }
 
     /**
-     * Get language code for a locale
-     *
-     * @param $localeCode locale code (using RFC 4646 language tags)
-     * @return string ISO 639-1 or ISO 639-2 language code
+     * Returns ISO 639-1 or ISO 639-2 language code for a locale
+     * @param string $localeCode the locale code (using RFC 4646 language tags)
+     * @return string
      */
     public static function languageCode($localeCode)
     {
@@ -67,10 +62,9 @@ class Locale extends DataAbstract
     }
 
     /**
-     * Get list of language locale codes
-     *
-     * @param string $languageCode ISO 639-1, ISO 639-2 or ISO 639-3 language code
-     * @return array list of language locale codes
+     * Returns list of language locale codes
+     * @param string $languageCode the ISO 639-1, ISO 639-2 or ISO 639-3 language code
+     * @return string[]
      */
     public static function languageLocaleCodes($languageCode)
     {
@@ -80,9 +74,8 @@ class Locale extends DataAbstract
     }
 
     /**
-     * Get list of locale codes grouped by language codes
-     *
-     * @return array list of locale codes grouped by ISO 639-1, ISO 639-2 or ISO 639-3 language codes
+     * Returns list of locale codes grouped by ISO 639-1, ISO 639-2 or ISO 639-3 language codes
+     * @return array
      */
     public static function languagesLocaleCodes()
     {
@@ -101,10 +94,9 @@ class Locale extends DataAbstract
     }
 
     /**
-     * Get list of country locale codes
-     *
-     * @param string $countryCode ISO 3166-1 alpha-2 country code
-     * @return array list of country locale codes (using RFC 4646 language tags)
+     * Returns list of country locale codes (using RFC 4646 language tags)
+     * @param string $countryCode the ISO 3166-1 alpha-2 country code
+     * @return string[]
      */
     public static function countryLocaleCodes($countryCode)
     {
@@ -114,9 +106,8 @@ class Locale extends DataAbstract
     }
 
     /**
-     * Get list of locale codes grouped by ISO 3166-1 alpha-2 country codes
-     *
-     * @return array list of locale codes (using RFC 4646 language tags) grouped by ISO 3166-1 alpha-2 country codes
+     * Returns list of locale codes (using RFC 4646 language tags) grouped by ISO 3166-1 alpha-2 country codes
+     * @return array
      */
     public static function countriesLocaleCodes()
     {
@@ -136,8 +127,7 @@ class Locale extends DataAbstract
 
     /**
      * Find main locale code in a list
-     *
-     * @param array $localeCodes list of locale codes
+     * @param string[] $localeCodes the list of locale codes
      * @return string|null main locale code (using RFC 4646 language tags) or null
      */
     public static function findMainCode($localeCodes)
@@ -158,9 +148,8 @@ class Locale extends DataAbstract
     }
 
     /**
-     * Try to find locale code for a country
-     *
-     * @param string $countryCode ISO 3166-1 alpha-2 country code
+     * Tries to find locale code for a country
+     * @param string $countryCode the ISO 3166-1 alpha-2 country code
      * @return string|null locale code (using RFC 4646 language tags)
      */
     public static function countryLocaleCode($countryCode)
@@ -203,11 +192,10 @@ class Locale extends DataAbstract
     }
 
     /**
-     * Get locale code for a language and a country
-     *
-     * @param string $languageCode ISO 639-1, ISO 639-2 or ISO 639-3 language code
-     * @param string $countryCode ISO 3166-1 alpha-2 country code
-     * @return string locale code (using RFC 4646 language tags)
+     * Returns locale code (using RFC 4646 language tags) for a language and a country
+     * @param string $languageCode the ISO 639-1, ISO 639-2 or ISO 639-3 language code
+     * @param string $countryCode the ISO 3166-1 alpha-2 country code
+     * @return string
      */
     public static function languageCountryLocaleCode($languageCode, $countryCode)
     {

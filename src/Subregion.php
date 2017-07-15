@@ -9,10 +9,9 @@ namespace tigrov\intldata;
 class Subregion extends DataAbstract
 {
     /**
-     * Get list of UN sub-region codes for a region
-     *
+     * Returns list of UN sub-region codes for a region
      * @param null|string $regionCode UN region code
-     * @return array list of UN sub-region codes
+     * @return string[]
      */
     public static function codes($regionCode = null)
     {
@@ -20,10 +19,9 @@ class Subregion extends DataAbstract
     }
 
     /**
-     * Get list of sub-region names for a region
-     *
+     * String list of sub-region names for a region
      * @param null|string $regionCode UN region code
-     * @return array list of subregion names
+     * @return array
      */
     public static function names($regionCode = null)
     {
@@ -39,7 +37,6 @@ class Subregion extends DataAbstract
 
     /**
      * @inheritdoc
-     *
      * @param string $code UN region code, UN sub-region code, ISO 3166-1 alpha-2 country code
      * @return string region name, subregion name, country name
      */
@@ -49,10 +46,9 @@ class Subregion extends DataAbstract
     }
 
     /**
-     * Get UN region code by a subregion
-     *
+     * Returns UN region code by a subregion
      * @param string $subregionCode UN sub-region code
-     * @return string UN region code
+     * @return string
      */
     public static function regionCode($subregionCode)
     {
@@ -66,10 +62,9 @@ class Subregion extends DataAbstract
     }
 
     /**
-     * Get list of ISO 3166-1 alpha-2 country codes for a sub-region
-     *
+     * Returns list of ISO 3166-1 alpha-2 country codes for a sub-region
      * @param string $subregionCode UN sub-region code
-     * @return array list of ISO 3166-1 alpha-2 country codes
+     * @return array
      */
     public static function countryCodes($subregionCode)
     {
@@ -79,10 +74,9 @@ class Subregion extends DataAbstract
     }
 
     /**
-     * Get UN sub-region code for a country
-     *
+     * Returns UN sub-region code for a country
      * @param string $countryCode ISO 3166-1 alpha-2 country code
-     * @return string UN sub-region code
+     * @return string
      */
     public static function countrySubregionCode($countryCode)
     {

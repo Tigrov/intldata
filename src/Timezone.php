@@ -9,11 +9,11 @@ namespace tigrov\intldata;
 class Timezone extends DataAbstract
 {
     /**
-     * Time zone names from IANA tame zone database
+     * Returns time zone names from IANA tame zone database
      * @inheritdoc
      *
-     * @param null|string $countryCode country code
-     * @return array list of timezone codes
+     * @param null|string $countryCode the country code
+     * @return string[] list of timezone codes
      */
     public static function codes($countryCode = null)
     {
@@ -23,8 +23,9 @@ class Timezone extends DataAbstract
     }
 
     /**
+     * Returns list of timezone names
      * @inheritdoc
-     * @return array list of timezone names
+     * @return array
      */
     public static function names($codes = null)
     {
@@ -55,9 +56,8 @@ class Timezone extends DataAbstract
 
     /**
      * Generate timezone name from Intl data.
-     *
      * @param \IntlTimeZone $intlTimeZone
-     * @return string timezone name
+     * @return string
      */
     public static function intlName(\IntlTimeZone $intlTimeZone)
     {
@@ -68,9 +68,8 @@ class Timezone extends DataAbstract
     }
 
     /**
-     * Get default timezone code for each country
-     *
-     * @return array timezone code for each country
+     * Returns default timezone code for each country
+     * @return array
      */
     public static function countriesTimezoneCode()
     {
@@ -84,10 +83,9 @@ class Timezone extends DataAbstract
     }
 
     /**
-     * Get default timezone code of a country
-     *
+     * Returns default timezone code of a country
      * @param string $countryCode ISO 3166-1 alpha-2 country code
-     * @return string timezone code
+     * @return string
      */
     public static function countryTimezoneCode($countryCode)
     {

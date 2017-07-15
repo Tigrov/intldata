@@ -28,7 +28,7 @@ class Currency extends DataAbstract
     const MAIN_CODES = ['USD', 'EUR', 'GBP', 'CNY', 'AUD', 'RUB', 'INR', 'ZAR'];
 
     /**
-     * Get actual ISO 4217 currency codes
+     * Returns actual ISO 4217 currency codes
      * @inheritdoc
      */
     public static function codes()
@@ -37,7 +37,7 @@ class Currency extends DataAbstract
     }
 
     /**
-     * Get main ISO 4217 currency codes
+     * Returns main ISO 4217 currency codes
      * @return string[]
      */
     public static function mainCodes()
@@ -46,9 +46,8 @@ class Currency extends DataAbstract
     }
 
     /**
-     * Get all supported currency names
-     *
-     * @return array all currency names include old and not used.
+     * Returns all supported currency names include old and not used
+     * @return array
      */
     public static function allNames()
     {
@@ -74,10 +73,9 @@ class Currency extends DataAbstract
     }
 
     /**
-     * Find main currency code in a list
-     *
-     * @param array $codes list of currency codes
-     * @return string|null main currency code or null
+     * Find main ISO 4217 currency code in a list
+     * @param string[] $codes list of currency codes
+     * @return string|null
      */
     public static function findMainCode($codes)
     {
@@ -90,20 +88,35 @@ class Currency extends DataAbstract
         return null;
     }
 
-    public static function countryCurrencyFormatter($countryCode)
-    {
-        $localeCode = Locale::countryLocaleCode($countryCode);
-
-        return new \NumberFormatter($localeCode, \NumberFormatter::CURRENCY);
-    }
-
+    /**
+     * Returns ISO 4217 currency code for a country
+     * @param string $countryCode the ISO 3166-1 alpha-2 country code
+     * @return string
+     */
     public static function countryCurrencyCode($countryCode)
     {
         return static::countryCurrencyFormatter($countryCode)->getSymbol(\NumberFormatter::INTL_CURRENCY_SYMBOL);
     }
 
+    /**
+     * Returns currency symbol for a country
+     * @param string $countryCode the ISO 3166-1 alpha-2 country code
+     * @return string
+     */
     public static function countryCurrencySymbol($countryCode)
     {
         return static::countryCurrencyFormatter($countryCode)->getSymbol(\NumberFormatter::CURRENCY_SYMBOL);
+    }
+
+    /**
+     * Returns an \NumberFormatter object for a country
+     * @param $countryCode the ISO 3166-1 alpha-2 country code
+     * @return \NumberFormatter
+     */
+    protected static function countryCurrencyFormatter($countryCode)
+    {
+        $localeCode = Locale::countryLocaleCode($countryCode);
+
+        return new \NumberFormatter($localeCode, \NumberFormatter::CURRENCY);
     }
 }

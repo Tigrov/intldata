@@ -12,7 +12,7 @@ class Language extends DataAbstract
     const MAIN_CODES = ['zh','en','es','ar','pt','ru','de','fr','it','tr'];
 
     /**
-     * ISO 639-1 and ISO 639-2 language codes
+     * Returns ISO 639-1 and ISO 639-2 language codes
      * @inheritdoc
      */
     public static function codes()
@@ -29,10 +29,9 @@ class Language extends DataAbstract
     }
 
     /**
-     * Get name of a language in the language
-     *
-     * @param $code string language code
-     * @return string name of the language in the language
+     * Returns name of a language in the language
+     * @param string $code language code
+     * @return string
      */
     public static function languageName($code)
     {
@@ -40,9 +39,8 @@ class Language extends DataAbstract
     }
 
     /**
-     * Get list of language names in the each language.
-     *
-     * @return array list of names
+     * Returns list of language names in the each language.
+     * @return array
      */
     public static function languageNames()
     {
@@ -62,9 +60,8 @@ class Language extends DataAbstract
 
     /**
      * Find main ISO 639-1 language code in a list
-     *
-     * @param array $codes list of language codes
-     * @return string|null main ISO 639-1 language code or null
+     * @param string[] $codes list of language codes
+     * @return string|null
      */
     public static function findMainCode($codes)
     {
@@ -78,10 +75,9 @@ class Language extends DataAbstract
     }
 
     /**
-     * Get list of country language codes
-     *
-     * @param string $countryCode ISO 3166-1 alpha-2 country code
-     * @return string[] ISO 639-1 language codes
+     * Returns list of country ISO 639-1 language codes
+     * @param string $countryCode the ISO 3166-1 alpha-2 country code
+     * @return string[]
      */
     public function countryLanguageCodes($countryCode)
     {
@@ -96,9 +92,8 @@ class Language extends DataAbstract
     }
 
     /**
-     * Get default language code for each country
-     *
-     * @return array language code for each country
+     * Returns default language code for each country
+     * @return array
      */
     public static function countriesLanguageCode()
     {
@@ -112,10 +107,9 @@ class Language extends DataAbstract
     }
 
     /**
-     * Get default language code of a country
-     *
+     * Returns default ISO 639-1 language code of a country
      * @param string $countryCode ISO 3166-1 alpha-2 country code
-     * @return string ISO 639-1 language code
+     * @return string
      */
     public static function countryLanguageCode($countryCode)
     {

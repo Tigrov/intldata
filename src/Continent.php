@@ -60,8 +60,7 @@ class Continent extends DataAbstract
     }
 
     /**
-     * List of continent's ISO 3166-1 alpha-2 country codes.
-     *
+     * Returns list of continent's ISO 3166-1 alpha-2 country codes.
      * @param string $code continent code
      * @return array ISO 3166-1 alpha-2 country codes of continent
      */
@@ -71,8 +70,7 @@ class Continent extends DataAbstract
     }
 
     /**
-     * Get continent code by ISO 3166-1 alpha-2 country code.
-     *
+     * Returns continent code by ISO 3166-1 alpha-2 country code.
      * @param string $countryCode ISO 3166-1 alpha-2 country code
      * @return null|string continent code
      */

@@ -24,7 +24,7 @@ class Country extends DataAbstract
                    'VN','VU','WF','WS','XK','YE','YT','ZA','ZM','ZW'];
 
     /**
-     * ISO 3166-1 alpha-2 country codes
+     * Returns ISO 3166-1 alpha-2 country codes
      * @inheritdoc
      */
     public static function codes()
