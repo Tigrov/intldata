@@ -109,8 +109,20 @@ class Currency extends DataAbstract
     }
 
     /**
+     * Returns currency symbol for a ISO 4217 currency code
+     * @param string $code the currency code
+     * @return string
+     */
+    public static function currencySymbol($code)
+    {
+        $localeCode = \Locale::getDefault() . '@currency=' . $code;
+        $formatter = new \NumberFormatter($localeCode, \NumberFormatter::CURRENCY);
+        return $formatter->getSymbol(\NumberFormatter::CURRENCY_SYMBOL);
+    }
+
+    /**
      * Returns an \NumberFormatter object for a country
-     * @param $countryCode the ISO 3166-1 alpha-2 country code
+     * @param string $countryCode the ISO 3166-1 alpha-2 country code
      * @return \NumberFormatter
      */
     protected static function countryCurrencyFormatter($countryCode)
