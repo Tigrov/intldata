@@ -54,14 +54,6 @@ class Continent extends DataAbstract
     /**
      * @inheritdoc
      */
-    public static function names()
-    {
-        return static::NAMES;
-    }
-
-    /**
-     * @inheritdoc
-     */
     public static function name($code)
     {
         return static::NAMES[$code];

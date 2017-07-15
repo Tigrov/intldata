@@ -8,8 +8,6 @@ namespace tigrov\intldata;
 
 class Subregion extends DataAbstract
 {
-    use NamesTrait;
-
     /**
      * Get list of UN sub-region codes for a region
      *

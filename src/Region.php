@@ -8,8 +8,6 @@ namespace tigrov\intldata;
 
 class Region extends DataAbstract
 {
-    use NamesTrait;
-
     /**
      * World region code
      */

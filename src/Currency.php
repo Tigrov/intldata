@@ -8,8 +8,6 @@ namespace tigrov\intldata;
 
 class Currency extends DataAbstract
 {
-    use NamesTrait;
-
     /**
      * Actual ISO 4217 currency codes
      */

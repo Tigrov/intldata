@@ -24,15 +24,14 @@ class Timezone extends DataAbstract
 
     /**
      * @inheritdoc
-     *
-     * @param null|string $countryCode ISO 3166-1 alpha-2 country code
      * @return array list of timezone names
      */
-    public static function names($countryCode = null)
+    public static function names($codes = null)
     {
         $list = [];
         $sort = [];
-        foreach (static::codes($countryCode) as $code) {
+        $codes = $codes ?: static::codes();
+        foreach ($codes as $code) {
             $intlTimeZone = \IntlTimeZone::createTimeZone($code);
             $name = static::intlName($intlTimeZone);
             if ('(GMT) GMT' != $name) {

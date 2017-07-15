@@ -15,4 +15,20 @@ abstract class DataAbstract implements DataInterface
     {
         return isset(static::codes()[$code]);
     }
+
+    /**
+     * @inheritdoc
+     */
+    public static function names($codes = null)
+    {
+        $list = [];
+        $codes = $codes ?: static::codes();
+        foreach ($codes as $code) {
+            $list[$code] = static::name($code);
+        }
+
+        asort($list);
+
+        return $list;
+    }
 }

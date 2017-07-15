@@ -8,8 +8,6 @@ namespace tigrov\intldata;
 
 class Language extends DataAbstract
 {
-    use NamesTrait;
-
     // Main ISO 639-1 language codes
     const MAIN_CODES = ['zh','en','es','ar','pt','ru','de','fr','it','tr'];
 

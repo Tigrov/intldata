@@ -23,9 +23,10 @@ interface DataInterface
 
     /**
      * Returns list of names.
-     * @return array list of names
+     * @param string[]|null $codes list of codes to get names, the empty value means all codes
+     * @return array list of names with code keys [code => name]
      */
-    public static function names();
+    public static function names($codes = null);
 
     /**
      * Returns name by code.

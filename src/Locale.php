@@ -8,8 +8,6 @@ namespace tigrov\intldata;
 
 class Locale extends DataAbstract
 {
-    use NamesTrait;
-
     /*
      * Ignored locale codes (using RFC 4646 language tags)
      */
