@@ -60,19 +60,19 @@ class Continent extends DataAbstract
     }
 
     /**
-     * Returns list of continent's ISO 3166-1 alpha-2 country codes.
-     * @param string $code continent code
-     * @return array ISO 3166-1 alpha-2 country codes of continent
+     * Returns list of continent's ISO 3166-1 alpha-2 country codes
+     * @param string|null $code continent code
+     * @return array
      */
-    public static function countryCodes($code)
+    public static function countryCodes($code = null)
     {
-        return static::CODES[$code];
+        return $code ? static::CODES[$code] : static::CODES;
     }
 
     /**
      * Returns continent code by ISO 3166-1 alpha-2 country code.
      * @param string $countryCode ISO 3166-1 alpha-2 country code
-     * @return null|string continent code
+     * @return string|null
      */
     public static function countryContinentCode($countryCode)
     {
