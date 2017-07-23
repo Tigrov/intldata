@@ -43,6 +43,27 @@ class Locale extends DataAbstract
     }
 
     /**
+     * Returns list of locale names in the each locale language
+     * @param string[]|null $codes the list of codes to get names, the empty value means all codes
+     * @param bool $sort a boolean indicating to sort the result
+     * @return array
+     */
+    public static function localeNames($codes = null, $sort = true)
+    {
+        $list = [];
+        $codes = $codes ?: static::codes();
+        foreach (static::codes() as $code) {
+            $list[$code] = static::localeName($code);
+        }
+
+        if ($sort) {
+            asort($list);
+        }
+
+        return $list;
+    }
+
+    /**
      * Tries to find out best available locale based on HTTP “Accept-Language” header
      * @return string The corresponding locale identifier (using RFC 4646 language tags)
      */

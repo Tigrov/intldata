@@ -24,7 +24,7 @@ interface DataInterface
     /**
      * Returns list of names with code keys [code => name]
      * @param string[]|null $codes the list of codes to get names, the empty value means all codes
-     * @param bool $sort a boolean indicating to sort the result.
+     * @param bool $sort a boolean indicating to sort the result
      * @return array
      */
     public static function names($codes = null, $sort = true);

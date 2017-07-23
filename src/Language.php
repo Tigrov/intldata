@@ -17,7 +17,7 @@ class Language extends DataAbstract
      */
     public static function codes()
     {
-        return array_unique(array_values(static::countriesLanguageCode()));
+        return array_keys(Locale::languagesLocaleCodes());
     }
 
     /**
@@ -39,19 +39,20 @@ class Language extends DataAbstract
     }
 
     /**
-     * Returns list of language names in the each language.
+     * Returns list of language names in the each language
+     * @param string[]|null $codes the list of codes to get names, the empty value means all codes
+     * @param bool $sort a boolean indicating to sort the result
      * @return array
      */
-    public static function languageNames()
+    public static function languageNames($codes = null, $sort = true)
     {
-        static $list;
+        $list = [];
+        $codes = $codes ?: static::codes();
+        foreach (static::codes() as $code) {
+            $list[$code] = static::languageName($code);
+        }
 
-        if ($list === null) {
-            $list = [];
-            foreach (static::codes() as $code) {
-                $list[$code] = static::languageName($code);
-            }
-
+        if ($sort) {
             asort($list);
         }
 
