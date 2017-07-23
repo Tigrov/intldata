@@ -17,7 +17,7 @@ class Language extends DataAbstract
      */
     public static function codes()
     {
-        return array_keys(Locale::languagesLocaleCodes());
+        return array_unique(array_values(static::countriesLanguageCode()));
     }
 
     /**
