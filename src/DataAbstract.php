@@ -19,7 +19,7 @@ abstract class DataAbstract implements DataInterface
     /**
      * @inheritdoc
      */
-    public static function names($codes = null)
+    public static function names($codes = null, $sort = true)
     {
         $list = [];
         $codes = $codes ?: static::codes();
@@ -27,7 +27,9 @@ abstract class DataAbstract implements DataInterface
             $list[$code] = static::name($code);
         }
 
-        asort($list);
+        if ($sort) {
+            asort($list);
+        }
 
         return $list;
     }

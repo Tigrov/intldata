@@ -27,21 +27,23 @@ class Timezone extends DataAbstract
      * @inheritdoc
      * @return array
      */
-    public static function names($codes = null)
+    public static function names($codes = null, $sort = true)
     {
         $list = [];
-        $sort = [];
+        $sortList = [];
         $codes = $codes ?: static::codes();
         foreach ($codes as $code) {
             $intlTimeZone = \IntlTimeZone::createTimeZone($code);
             $name = static::intlName($intlTimeZone);
             if ('(GMT) GMT' != $name) {
                 $list[$code] = $name;
-                $sort[$code] = abs($intlTimeZone->getRawOffset());
+                $sortList[$code] = abs($intlTimeZone->getRawOffset());
             }
         }
 
-        array_multisort($sort, $list);
+        if ($sort) {
+            array_multisort($sortList, $list);
+        }
 
         return $list;
     }

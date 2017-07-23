@@ -23,14 +23,16 @@ class Subregion extends DataAbstract
      * @param null|string $regionCode UN region code
      * @return array
      */
-    public static function names($regionCode = null)
+    public static function names($regionCode = null, $sort = true)
     {
         $list = [];
         foreach (static::codes($regionCode) as $code) {
             $list[$code] = static::name($code);
         }
 
-        asort($list);
+        if ($sort) {
+            asort($list);
+        }
 
         return $list;
     }
