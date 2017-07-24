@@ -48,7 +48,7 @@ class Language extends DataAbstract
     {
         $list = [];
         $codes = $codes ?: static::codes();
-        foreach (static::codes() as $code) {
+        foreach ($codes as $code) {
             $list[$code] = static::languageName($code);
         }
 
