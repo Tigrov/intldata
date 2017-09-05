@@ -74,6 +74,10 @@ class Region extends DataAbstract
      */
     const CIS_COUNTRY_CODES = ['AM','AZ','BY','KG','KZ','MD','RU','TJ','TM','UA','UZ'];
 
+    /*
+     * @see more business regions at https://en.wikipedia.org/wiki/List_of_business_region_acronyms
+     */
+
     /**
      * UN regional codes
      * @inheritdoc
