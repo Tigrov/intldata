@@ -1,6 +1,6 @@
 <?php
 /**
- * List of default language codes for countries based on Geoname's data
+ * List of the default language codes according to the country code. Based on Geoname's data.
  *
  * @link https://github.com/tigrov/intldata
  * @author Sergei Tigrov <rrr-r@ya.ru>

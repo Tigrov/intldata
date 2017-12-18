@@ -1,6 +1,6 @@
 <?php
 /**
- * List of countries capital's time zones
+ * List of time zones of the capitals according to the country code.
  *
  * @link https://github.com/tigrov/intldata
  * @author Sergei Tigrov <rrr-r@ya.ru>
