@@ -25,6 +25,7 @@ class Timezone extends DataAbstract
     /**
      * Returns list of timezone names
      * @inheritdoc
+     * @param bool $sort a boolean indicating to sort the result according to the GMT offset.
      * @return array
      */
     public static function names($codes = null, $sort = true)
@@ -57,19 +58,6 @@ class Timezone extends DataAbstract
     }
 
     /**
-     * Generate timezone name from Intl data.
-     * @param \IntlTimeZone $intlTimeZone
-     * @return string
-     */
-    public static function intlName(\IntlTimeZone $intlTimeZone)
-    {
-        $short = $intlTimeZone->getDisplayName(false, \IntlTimeZone::DISPLAY_SHORT);
-        $long = $intlTimeZone->getDisplayName(false, \IntlTimeZone::DISPLAY_GENERIC_LOCATION);
-
-        return '(' . $short . ') ' . $long;
-    }
-
-    /**
      * Returns default timezone code for each country
      * @return array
      */
@@ -92,5 +80,18 @@ class Timezone extends DataAbstract
     public static function countryTimezoneCode($countryCode)
     {
         return static::countriesTimezoneCode()[$countryCode];
+    }
+
+    /**
+     * Generate timezone name from Intl data.
+     * @param \IntlTimeZone $intlTimeZone
+     * @return string
+     */
+    protected static function intlName(\IntlTimeZone $intlTimeZone)
+    {
+        $short = $intlTimeZone->getDisplayName(false, \IntlTimeZone::DISPLAY_SHORT);
+        $long = $intlTimeZone->getDisplayName(false, \IntlTimeZone::DISPLAY_GENERIC_LOCATION);
+
+        return '(' . $short . ') ' . $long;
     }
 }

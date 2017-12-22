@@ -5,7 +5,15 @@
  */
 
 namespace tigrov\intldata;
-
+/**
+ * Class Locale
+ * @package tigrov\intldata
+ *
+ * PHP uses an underscore "_" and allow to use a hyphen "-" for separating language tags
+ * but in the specification BCP 47 (RFC 5646) described to use only a hyphen "-" for this.
+ * https://tools.ietf.org/html/rfc5646
+ * https://en.wikipedia.org/wiki/IETF_language_tag
+ */
 class Locale extends DataAbstract
 {
     /*
@@ -45,19 +53,14 @@ class Locale extends DataAbstract
     /**
      * Returns list of locale names in the each locale language
      * @param string[]|null $codes the list of codes to get names, the empty value means all codes
-     * @param bool $sort a boolean indicating to sort the result
      * @return array
      */
-    public static function localeNames($codes = null, $sort = true)
+    public static function localeNames($codes = null)
     {
         $list = [];
         $codes = $codes ?: static::codes();
         foreach ($codes as $code) {
             $list[$code] = static::localeName($code);
-        }
-
-        if ($sort) {
-            asort($list);
         }
 
         return $list;

@@ -41,19 +41,14 @@ class Language extends DataAbstract
     /**
      * Returns list of language names in the each language
      * @param string[]|null $codes the list of codes to get names, the empty value means all codes
-     * @param bool $sort a boolean indicating to sort the result
      * @return array
      */
-    public static function languageNames($codes = null, $sort = true)
+    public static function languageNames($codes = null)
     {
         $list = [];
         $codes = $codes ?: static::codes();
         foreach ($codes as $code) {
             $list[$code] = static::languageName($code);
-        }
-
-        if ($sort) {
-            asort($list);
         }
 
         return $list;
@@ -80,7 +75,7 @@ class Language extends DataAbstract
      * @param string $countryCode the ISO 3166-1 alpha-2 country code
      * @return string[]
      */
-    public function countryLanguageCodes($countryCode)
+    public static function countryLanguageCodes($countryCode)
     {
         $localeCodes = Locale::countryLocaleCodes($countryCode);
 

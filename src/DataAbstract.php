@@ -13,7 +13,7 @@ abstract class DataAbstract implements DataInterface
      */
     public static function has($code)
     {
-        return isset(static::codes()[$code]);
+        return in_array($code, static::codes());
     }
 
     /**

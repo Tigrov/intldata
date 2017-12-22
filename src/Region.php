@@ -84,7 +84,8 @@ class Region extends DataAbstract
      */
     public static function codes()
     {
-        return array_keys(static::CODES);
+
+        return array_map('strval', array_keys(static::CODES));
     }
 
     /**

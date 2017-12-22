@@ -37,15 +37,6 @@ class Currency extends DataAbstract
     }
 
     /**
-     * Returns main ISO 4217 currency codes
-     * @return string[]
-     */
-    public static function mainCodes()
-    {
-        return static::MAIN_CODES;
-    }
-
-    /**
      * Returns all supported currency names include old and not used
      * @return array
      */
@@ -117,7 +108,11 @@ class Currency extends DataAbstract
     {
         $localeCode = \Locale::getDefault() . '@currency=' . $code;
         $formatter = new \NumberFormatter($localeCode, \NumberFormatter::CURRENCY);
-        return $formatter->getSymbol(\NumberFormatter::CURRENCY_SYMBOL);
+        $symbol = $formatter->getSymbol(\NumberFormatter::CURRENCY_SYMBOL);
+        return $symbol != $code
+            ? $symbol
+            : (static::countryCurrencySymbol(substr($code, 0, 2))
+                ?: $symbol);
     }
 
     /**
