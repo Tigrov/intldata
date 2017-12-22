@@ -24,14 +24,13 @@ class TimezoneTest extends TestCase
 
     public function testNames()
     {
-        $this->assertArraySubset(['Europe/Moscow' => '(GMT+3) Moscow Time','America/New_York' => '(EST) New York Time','Asia/Shanghai' => '(GMT+8) China Time'], Timezone::names());
-        $this->assertSame(['Europe/Moscow' => '(GMT+3) Moscow Time','America/New_York' => '(EST) New York Time','Asia/Shanghai' => '(GMT+8) China Time'], Timezone::names(['Europe/Moscow','Asia/Shanghai','America/New_York']));
-        $this->assertSame(['Europe/Moscow' => '(GMT+3) Moscow Time','Asia/Shanghai' => '(GMT+8) China Time','America/New_York' => '(EST) New York Time'], Timezone::names(['Europe/Moscow','Asia/Shanghai','America/New_York'], false));
+        $this->assertArraySubset(['America/New_York' => '(EST) New York Time','Asia/Shanghai' => '(GMT+8) China Time'], Timezone::names());
+        $this->assertSame(['America/New_York' => '(EST) New York Time','Asia/Shanghai' => '(GMT+8) China Time'], Timezone::names(['Asia/Shanghai','America/New_York']));
+        $this->assertSame(['Asia/Shanghai' => '(GMT+8) China Time','America/New_York' => '(EST) New York Time'], Timezone::names(['Asia/Shanghai','America/New_York'], false));
     }
 
     public function testName()
     {
-        $this->assertSame('(GMT+3) Moscow Time', Timezone::name('Europe/Moscow'));
         $this->assertSame('(EST) New York Time', Timezone::name('America/New_York'));
         $this->assertSame('(GMT+8) China Time', Timezone::name('Asia/Shanghai'));
     }

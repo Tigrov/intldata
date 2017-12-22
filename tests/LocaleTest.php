@@ -38,12 +38,11 @@ class LocaleTest extends TestCase
     {
         $this->assertSame('русский (Россия)', Locale::localeName('ru-RU'));
         $this->assertSame('English (United States)', Locale::localeName('en-US'));
-        $this->assertSame('中文（简体、中国）', Locale::localeName('zh-Hans-CN'));
     }
 
     public function testLocaleNames()
     {
-        $this->assertSame(['ru-RU' => 'русский (Россия)', 'en-US' => 'English (United States)', 'zh-Hans-CN' => '中文（简体、中国）'], Locale::localeNames(['ru-RU', 'en-US', 'zh-Hans-CN']));
+        $this->assertSame(['ru-RU' => 'русский (Россия)', 'en-US' => 'English (United States)'], Locale::localeNames(['ru-RU', 'en-US']));
     }
 
     public function testAcceptCode()

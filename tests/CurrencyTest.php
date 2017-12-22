@@ -71,14 +71,12 @@ class CurrencyTest extends TestCase
 
     public function testCountryCurrencySymbol()
     {
-        $this->assertSame('₽', Currency::countryCurrencySymbol('RU'));
         $this->assertSame('$', Currency::countryCurrencySymbol('US'));
         $this->assertSame('￥', Currency::countryCurrencySymbol('CN'));
     }
 
     public function testCurrencySymbol()
     {
-        $this->assertSame('₽', Currency::currencySymbol('RUB'));
         $this->assertSame('$', Currency::currencySymbol('USD'));
         $this->assertSame('CN¥', Currency::currencySymbol('CNY')); // for en-US locale
     }
