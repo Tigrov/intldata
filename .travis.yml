@@ -19,7 +19,6 @@ before_install:
   - sudo locale-gen en_US en_US.UTF-8
   - sudo dpkg-reconfigure locales
   - sudo apt-get install php5-intl
-  - sudo apt-get install php70-intl
 
 install:
   - travis_retry composer self-update && composer --version
