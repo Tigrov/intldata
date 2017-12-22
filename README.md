@@ -3,6 +3,10 @@ Intl data
 
 The library provides easy access to Intl extension data for information about regions, sub-regions, countries, languages, locales, currencies and timezones. Also it has two additional classes for information about continents and measurement systems.
 
+[![Latest Stable Version](https://poser.pugx.org/Tigrov/intldata/v/stable)](https://packagist.org/packages/Tigrov/intldata)
+[![Build Status](https://travis-ci.org/Tigrov/intldata.svg?branch=master)](https://travis-ci.org/Tigrov/intldata)
+[![Coverage Status](https://coveralls.io/repos/github/Tigrov/intldata/badge.svg?branch=master)](https://coveralls.io/github/Tigrov/intldata?branch=master)
+
 The library consist of static classes:
 - Continent
 - Region
