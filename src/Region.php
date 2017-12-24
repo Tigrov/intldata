@@ -85,7 +85,7 @@ class Region extends DataAbstract
     public static function codes()
     {
 
-        return array_map('strval', array_keys(static::CODES));
+        return array_keys(static::CODES);
     }
 
     /**
@@ -102,7 +102,7 @@ class Region extends DataAbstract
             $data = \ResourceBundle::create(\Locale::getDefault(), 'ICUDATA-region')->get('Countries');
         }
 
-        return $data->get($code);
+        return $data->get((string)$code);
     }
 
     /**

@@ -15,12 +15,9 @@ class Subregion extends DataAbstract
      */
     public static function codes($regionCode = null)
     {
-        return array_map(
-            'strval',
-            $regionCode
-                ? array_keys(Region::CODES[$regionCode])
-                : call_user_func_array('array_merge', array_map(function($v){return array_keys($v);}, Region::CODES))
-        );
+        return $regionCode
+            ? array_keys(Region::CODES[$regionCode])
+            : call_user_func_array('array_merge', array_map(function($v){return array_keys($v);}, Region::CODES));
     }
 
     /**
