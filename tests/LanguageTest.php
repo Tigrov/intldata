@@ -52,6 +52,20 @@ class LanguageTest extends TestCase
         $this->assertSame(['ru' => 'русский', 'en' => 'English', 'zh' => '中文'], Language::languageNames(['ru', 'en', 'zh']));
     }
 
+    public function testLocaleName()
+    {
+        $this->assertSame('Russian (Russia)', Language::localeName('ru-RU'));
+        $this->assertSame('American English', Language::localeName('en-US'));
+        $this->assertSame('американский английский', Language::localeName('en-US', 'ru-RU'));
+        $this->assertSame('British English', Language::localeName('en-GB'));
+    }
+
+    public function testLocaleNames()
+    {
+        $this->assertSame(['ru-RU' => 'Russian (Russia)', 'en-US' => 'American English', 'en-GB' => 'British English'], Language::localeNames(['ru-RU', 'en-US', 'en-GB']));
+        $this->assertSame(['ru-RU' => 'русский (Россия)', 'en-US' => 'американский английский', 'en-GB' => 'британский английский'], Language::localeNames(['ru-RU', 'en-US', 'en-GB'], 'ru-RU'));
+    }
+
     public function testFindMainCode()
     {
         $this->assertSame('en', Language::findMainCode(['es', 'en', 'pt', 'jp']));

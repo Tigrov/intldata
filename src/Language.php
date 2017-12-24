@@ -55,6 +55,49 @@ class Language extends DataAbstract
     }
 
     /**
+     * Returns name of a locale language in a locale
+     * e.g. the result for 'en_US' is 'American English', for 'en_GB' is 'British English'
+     * @param string $code locale language code
+     * @param string|null $in_code optional format locale code
+     * @return string
+     */
+    public static function localeName($code, $in_code = null)
+    {
+        $code = str_replace('-', '_', $code);
+        $in_code = str_replace('-', '_', $in_code ?: \Locale::getDefault());
+
+        static $languages;
+        if (!isset($languages[$in_code])) {
+            $languages[$in_code] = [];
+            $resource = \ResourceBundle::create($in_code, 'ICUDATA-lang')->get('Languages');
+            foreach($resource as $name => $value) {
+                $languages[$in_code][$name] = $value;
+            }
+        }
+
+        return isset($languages[$in_code][$code])
+            ? $languages[$in_code][$code]
+            : \Locale::getDisplayName($code, $in_code);
+    }
+
+    /**
+     * Returns list of locale language names in a locale
+     * @param string[]|null $codes the list of codes to get names, the empty value means all codes
+     * @param string|null $in_code optional format locale code
+     * @return array
+     */
+    public static function localeNames($codes, $in_code = null)
+    {
+        $list = [];
+        $codes = $codes ?: static::codes();
+        foreach ($codes as $code) {
+            $list[$code] = static::localeName($code, $in_code);
+        }
+
+        return $list;
+    }
+
+    /**
      * Find main ISO 639-1 language code in a list
      * @param string[] $codes list of language codes
      * @return string|null
