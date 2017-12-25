@@ -15,6 +15,7 @@ class Region extends DataAbstract
 
     /**
      * UN regional codes with subregion codes with ISO 3166-1 alpha-2 country codes
+     * https://en.wikipedia.org/wiki/United_Nations_geoscheme
      */
     const CODES = [
         '019' => [
@@ -49,7 +50,7 @@ class Region extends DataAbstract
     ];
 
     /**
-     * ISO 3166-1 alpha-2 codes of countries without region
+     * ISO 3166-1 alpha-2 codes of countries without region in UN geoscheme
      */
     const COUNTRIES_WITHOUT_REGION = ['AQ','BV'];
 
@@ -107,25 +108,12 @@ class Region extends DataAbstract
 
     /**
      * Returns list of ISO 3166-1 alpha-2 country codes for a region
-     * @param null|string $regionCode UN region code
+     * @param string $code UN region code
      * @return array
      */
-    public static function countryCodes($regionCode = null)
+    public static function countryCodes($code)
     {
-        $list = [];
-        foreach (static::CODES as $code => $subregions) {
-            foreach ($subregions as $subregionCode => $countryCodes) {
-                if (!$regionCode || $regionCode == $code || $regionCode == $subregionCode) {
-                    $list = array_merge($list, $countryCodes);
-                }
-            }
-        }
-
-        if (!$regionCode) {
-            $list = array_merge($list, static::COUNTRIES_WITHOUT_REGION);
-        }
-
-        return $list;
+        return call_user_func_array('array_merge', Region::CODES[$code]);
     }
 
     /**

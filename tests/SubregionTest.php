@@ -46,6 +46,8 @@ class SubregionTest extends TestCase
         $this->assertEquals('150', Subregion::regionCode('151'));
         $this->assertEquals('019', Subregion::regionCode('021'));
         $this->assertEquals('142', Subregion::regionCode('030'));
+        // Wrong subregion code
+        $this->assertNull(Subregion::regionCode('xxx'));
     }
 
     public function testCountryCodes()
@@ -60,5 +62,9 @@ class SubregionTest extends TestCase
         $this->assertEquals('151', Subregion::countrySubregionCode('RU'));
         $this->assertEquals('021', Subregion::countrySubregionCode('US'));
         $this->assertEquals('030', Subregion::countrySubregionCode('CN'));
+        // Antarctica is without region in UN geoscheme
+        $this->assertNull(Subregion::countrySubregionCode('AQ'));
+        // Wrong country code
+        $this->assertNull(Subregion::countrySubregionCode('XX'));
     }
 }

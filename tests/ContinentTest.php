@@ -48,6 +48,8 @@ class ContinentTest extends TestCase
         $this->assertSame('EU', Continent::countryContinentCode('RU'));
         $this->assertSame('NA', Continent::countryContinentCode('US'));
         $this->assertSame('AS', Continent::countryContinentCode('CN'));
+        // Wrong country code
+        $this->assertNull(Continent::countryContinentCode('XX'));
     }
 
     public function namesProvider()
