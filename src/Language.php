@@ -21,7 +21,7 @@ class Language extends DataAbstract
     }
 
     /**
-     * Main ISO 639-1 language codes
+     * Returns list of main ISO 639-1 language codes
      * @return string[]
      */
     public static function mainCodes()
