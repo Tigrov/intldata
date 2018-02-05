@@ -37,6 +37,15 @@ class Currency extends DataAbstract
     }
 
     /**
+     * Main ISO 4217 currency codes
+     * @return string[]
+     */
+    public static function mainCodes()
+    {
+        return static::MAIN_CODES;
+    }
+
+    /**
      * Returns all supported currency names include old and not used
      * @return array
      */
