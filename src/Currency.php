@@ -79,7 +79,7 @@ class Currency extends DataAbstract
      */
     public static function findMainCode($codes)
     {
-        foreach (static::MAIN_CODES as $code) {
+        foreach (static::mainCodes() as $code) {
             if (in_array($code, $codes)) {
                 return $code;
             }
