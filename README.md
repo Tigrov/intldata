@@ -66,7 +66,7 @@ Addition
 --------
 
 - For additional information about countries (flags, codes, borders and other) use a library  
-https://github.com/rinvex/country
+https://github.com/rinvex/country or/and https://github.com/antonioribeiro/countries
 - For divisions (country regions and states) and cities use a library  
 https://github.com/MenaraSolutions/geographer
 - For more information about Intl extension data use  
