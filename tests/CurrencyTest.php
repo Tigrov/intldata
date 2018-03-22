@@ -79,5 +79,8 @@ class CurrencyTest extends TestCase
     {
         $this->assertSame('$', Currency::currencySymbol('USD'));
         $this->assertSame('CN¥', Currency::currencySymbol('CNY')); // for en-US locale
+
+        setlocale(LC_ALL, 'en-US');
+        $this->assertSame('$', Currency::currencySymbol());
     }
 }

@@ -110,12 +110,15 @@ class Currency extends DataAbstract
 
     /**
      * Returns currency symbol for a ISO 4217 currency code
-     * @param string $code the currency code
+     * @param string|null $code the currency code. If null, method will attempt using currency code from current locale.
      * @return string
      */
-    public static function currencySymbol($code)
+    public static function currencySymbol($code = null)
     {
-        $localeCode = \Locale::getDefault() . '@currency=' . $code;
+        $localeCode = \Locale::getDefault();
+        if ($code !== null) {
+            $localeCode .= '@currency=' . $code;
+        }
         $formatter = new \NumberFormatter($localeCode, \NumberFormatter::CURRENCY);
         $symbol = $formatter->getSymbol(\NumberFormatter::CURRENCY_SYMBOL);
         return $symbol != $code
