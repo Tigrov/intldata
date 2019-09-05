@@ -31,6 +31,24 @@ class Locale extends DataAbstract
     }
 
     /**
+     * Returns default locale code
+     * @return string
+     */
+    public static function defaultCode()
+    {
+        return \Locale::getDefault();
+    }
+
+    /**
+     * Returns name of default locale
+     * @return string
+     */
+    public static function defaultName()
+    {
+        return static::name(\Locale::getDefault());
+    }
+
+    /**
      * Returns name of a locale
      * @param string $code the locale code
      * @return string

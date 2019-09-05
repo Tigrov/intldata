@@ -30,6 +30,24 @@ class Language extends DataAbstract
     }
 
     /**
+     * Returns default ISO 639-1 language code
+     * @return string
+     */
+    public static function defaultCode()
+    {
+        return Locale::languageCode(\Locale::getDefault());
+    }
+
+    /**
+     * Returns name of default language
+     * @return string
+     */
+    public static function defaultName()
+    {
+        return static::name(static::defaultCode());
+    }
+
+    /**
      * @inheritdoc
      */
     public static function name($code)
