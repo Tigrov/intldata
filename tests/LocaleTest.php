@@ -12,6 +12,16 @@ class LocaleTest extends TestCase
         $this->assertEmpty(array_diff(['ru_RU', 'en_US', 'zh_Hans_CN'], Locale::codes()));
     }
 
+    public function testDefaultCode()
+    {
+        $this->assertSame('en_US', Locale::defaultCode());
+    }
+
+    public function testDefaultName()
+    {
+        $this->assertSame('English (United States)', Locale::defaultName());
+    }
+
     public function testHas()
     {
         $this->assertTrue(Locale::has('ru_RU'));

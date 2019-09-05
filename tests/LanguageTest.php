@@ -12,6 +12,16 @@ class LanguageTest extends TestCase
         $this->assertEmpty(array_diff(['zh','en','es','ar','pt','ru','de','fr','it','tr'], Language::codes()));
     }
 
+    public function testDefaultCode()
+    {
+        $this->assertSame('en', Language::defaultCode());
+    }
+
+    public function testDefaultName()
+    {
+        $this->assertSame('English', Language::defaultName());
+    }
+
     public function testMainCodes()
     {
         $this->assertEquals(['zh','en','es','ar','pt','ru','de','fr','it','tr'], Language::MAIN_CODES);
